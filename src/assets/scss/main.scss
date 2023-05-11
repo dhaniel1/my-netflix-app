@@ -1,0 +1,33 @@
+/* @import url('https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff2') format('woff2'),
+@import url('https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff') format('woff') */
+
+
+@import url('https: //assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Bd.woff');
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+@import 'navbar.scss';
+@import 'banner.scss';
+@import 'utils.scss';
+@import 'rows.scss';
+@import 'root.scss';
+@import 'card.scss';
+@import 'signin.scss';
+
+:root,
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --netflix: #DD0B15;
+}
+
+body {
+    background: black;
+    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+}

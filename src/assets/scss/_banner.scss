@@ -1,0 +1,94 @@
+.banner {
+    position: relative;
+    padding-left: 2rem;
+    height: 70vh;
+    color: white;
+    object-fit: contain;
+    background-image: url(../img/wallpaperflare.com_wallpaper.jpg);
+    background-size: cover;
+    background-position: top 20% center;
+
+    &__contents {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 25vh;
+        margin-left: 30px;
+        height: 100%;
+    }
+
+    &__title {
+        font-family: 'Creepster', cursive;
+        font-size: 4rem;
+        font-weight: 800;
+        padding-bottom: 1rem;
+    }
+
+    &__description {
+        width: 45rem;
+        line-height: 1;
+        padding-bottom: 1rem;
+        font-size: 19.21px;
+        max-width: 360px;
+        letter-spacing: 0 !important;
+    }
+
+    &--fadeBottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3rem;
+        background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61));
+    }
+
+    &__buttons {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+
+        .banner__button {
+            font-weight: 700;
+            margin-right: 1rem;
+
+
+            p {
+                padding-left: 5px;
+            }
+        }
+    }
+
+    &__contentRight {
+        position: relative;
+        display: flex;
+        height: auto;
+        align-items: center;
+
+        div {
+            position: absolute;
+            top: 160px;
+            right: 0;
+            display: flex;
+            // height: 100px;
+            align-items: center;
+            justify-content: end;
+
+            span {
+                width: 100px;
+                padding: 9.5px 0px 9.5px 10px;
+                background-color: rgba(17, 17, 17, 0.445);
+                border-left: 3px solid #e5e5e5;
+                display: flex;
+                align-items: center;
+            }
+
+            .circleBtn {
+                border-radius: 50%;
+                width: 30px;
+                height: 45px;
+                margin-right: 15px;
+                background-color: transparent;
+                border: 0.5px solid white;
+            }
+        }
+    }
+}
