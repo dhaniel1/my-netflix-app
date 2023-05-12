@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Img } from "../shared";
 import axios from "../../api/axios";
 import requests from "../../api/requests";
-import { svg } from "../../assets";
+import { img, svg } from "../../assets";
 
 const Banner = (props: IpropHeader) => {
   const [movie, setMovie] = useState<any>([]);
@@ -28,7 +28,11 @@ const Banner = (props: IpropHeader) => {
     <header
       className="banner"
       style={{
-        backgroundImage: `url("http://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
+        backgroundImage: `${
+          movie.backdrop_path
+            ? `url("http://image.tmdb.org/t/p/original/${movie.backdrop_path}`
+            : img.defaultbackground
+        }"`,
       }}>
       <div className="banner__contents">
         <div className="banner__contentLeft">

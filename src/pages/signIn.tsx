@@ -1,14 +1,47 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { Button, Navbar } from "../components";
 import { Link, useNavigate } from "react-router-dom";
 import { authContext } from "../store/authContext";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { firebaseConfig } from "../firebase";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
+const firebaseApp = initializeApp(firebaseConfig);
+const db = getFirestore(firebaseApp);
+const auth = getAuth(firebaseApp);
 
 const SignIn: React.FC = () => {
   const navigate = useNavigate();
   const ctx = useContext(authContext);
 
-  function clicked(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+  const emailRef = useRef<HTMLInputElement | null>(null);
+  const passwordRef = useRef<HTMLInputElement | null>(null);
+  const emailValue = emailRef.current ? emailRef.current.value : "";
+  const passwordValue = passwordRef.current ? passwordRef.current.value : "";
+
+  function register(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.preventDefault();
+
+    createUserWithEmailAndPassword(auth, emailValue, passwordValue)
+      .then((userCredential) => {
+        // Signed in
+        // const user = userCredential.user;
+        console.log(userCredential);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+        // ..
+      });
+  }
+
+  function signInFn(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    e.preventDefault();
+
     ctx.authenticated = true;
     navigate("/home");
   }
@@ -26,6 +59,7 @@ const SignIn: React.FC = () => {
                 type="email"
                 className="form-control"
                 id="exampleInputEmail1"
+                ref={emailRef}
                 aria-describedby="emailHelp"
                 placeholder="Email or phone number"
               />
@@ -39,11 +73,12 @@ const SignIn: React.FC = () => {
               <input
                 type="password"
                 className="form-control"
+                ref={passwordRef}
                 id="exampleInputPassword1"
                 placeholder="Password"
               />
             </div>
-            <Button onClick={clicked} styles="btn btnRed" title="Submit" />
+            <Button onClick={signInFn} styles="btn btnRed" title="Submit" />
             <div className="form__checkContainer">
               <div className="form-check">
                 <input
@@ -61,7 +96,7 @@ const SignIn: React.FC = () => {
             </div>
             <div className="form__signup">
               <p>
-                New to Netflix? <span>Sign up now </span>
+                New to Netflix? <span onClick={register}>Sign up now </span>
               </p>
               <p>
                 This page is protected by Google reCAPTCHA to ensure you're not

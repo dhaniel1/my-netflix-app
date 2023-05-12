@@ -3,13 +3,16 @@ import { Button, Img } from "../shared";
 import { svg } from "../../assets";
 import { img } from "../../assets/img";
 import { authContext } from "../../store/authContext";
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { path } from "../../routes";
 
 const Navbar = (props: IpropNav) => {
   const { authenticated } = useContext(authContext);
 
   const [darkNav, setDarkNav] = useState(false);
+
+  const location = useLocation();
+  console.log(location);
 
   const transitionNavBar = () => {
     if (window.scrollY > 100) setDarkNav(true);
@@ -40,7 +43,7 @@ const Navbar = (props: IpropNav) => {
             {authenticated && (
               <Img src={img.profile1} className="nav__avatar" />
             )}
-            {!authenticated && (
+            {!location.pathname.includes("/signin") && !authenticated && (
               <Button
                 onClick={props.clickFn}
                 styles="rounded banner__button btnRed">
@@ -60,22 +63,22 @@ function Ul() {
   return (
     <ul className="nav__list">
       <li className="nav__listItem">
-        <Link to={path.home}>Home</Link>
+        <NavLink to={path.home}>Home</NavLink>
       </li>
       <li className="nav__listItem">
-        <Link to={path.tvshows}>TV Shows</Link>
+        <NavLink to={path.tvshows}>TV Shows</NavLink>
       </li>
       <li className="nav__listItem">
-        <Link to={path.movies}>Movies</Link>
+        <NavLink to={path.movies}>Movies</NavLink>
       </li>
       <li className="nav__listItem">
-        <Link to={path.newandpopular}>New & Popular</Link>
+        <NavLink to={path.newandpopular}>New & Popular</NavLink>
       </li>
       <li className="nav__listItem">
-        <Link to={path.mylist}>My List</Link>
+        <NavLink to={path.mylist}>My List</NavLink>
       </li>
       <li className="nav__listItem">
-        <Link to={path.browsebylanguage}>Browse by Languages</Link>
+        <NavLink to={path.browsebylanguage}>Browse by Languages</NavLink>
       </li>
     </ul>
   );
