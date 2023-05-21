@@ -12,13 +12,13 @@ const Navbar = (props: IpropNav) => {
   const [darkNav, setDarkNav] = useState(false);
 
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
 
   const transitionNavBar = () => {
     if (window.scrollY > 100) setDarkNav(true);
     else setDarkNav(false);
   };
-
+  console.log(authenticated);
   useEffect(() => {
     window.addEventListener("scroll", transitionNavBar);
     return () => window.removeEventListener("scroll", transitionNavBar);

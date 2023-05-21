@@ -78,9 +78,16 @@
 }
 
 .card__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 17rem 2rem 0 2rem;
+    margin-right: auto;
+}
+
+/* .card__container {
     display: flex;
     flex-direction: row;
     margin-top: 17rem;
     gap: .5rem;
     padding: 0 4rem;
-}
+} */

@@ -26,6 +26,16 @@ interface IpropDiv
   data?: any;
 }
 
+interface IpropInput
+  extends React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  > {
+  error?: string;
+  label?: string;
+  type?: React.HTMLInputTypeAttribute;
+}
+
 interface IpropBtn
   extends React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,

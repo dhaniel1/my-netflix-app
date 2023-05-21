@@ -14,13 +14,13 @@ export const rootCardData: rootCardData = [
     description: `Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.`,
   },
   {
-    id: 1,
+    id: 3,
     img: svg.crystalball,
     header: `Create profiles for kids`,
     description: `Send kids on adventures with their favorite characters in a space made just for them—free with your membership.`,
   },
   {
-    id: 1,
+    id: 4,
     img: svg.download,
     header: `Download your shows to watch offline`,
     description: `Save your favorites easily and always have something to watch.`,

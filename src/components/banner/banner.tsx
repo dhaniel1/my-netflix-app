@@ -9,7 +9,7 @@ const Banner = (props: IpropHeader) => {
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(requests.fetchNetflixOriginals);
+      const request = await axios.get(requests[1].url);
       setMovie(
         request.data.results[
           Math.floor(Math.random() * request.data.results.length - 1)
@@ -54,7 +54,7 @@ const Banner = (props: IpropHeader) => {
         <div className="banner__contentRight">
           <div>
             <Button styles="circleBtn ">
-              <Img src={svg.restart} />
+              <Img className="circleBtn-icon" src={svg.restart} />
             </Button>
             <span>18+</span>
           </div>

@@ -1,25 +1,28 @@
 .row {
     color: #fff;
-    padding-left: 2rem;
+    padding-left: 3rem;
+    width: 100%;
+    z-index: 15;
 
     &__posters {
         display: flex;
         overflow-y: hidden;
         overflow-x: scroll;
-        padding-bottom: 30px;
+        padding-bottom: 15px;
 
         &::-webkit-scrollbar {
+            background-color: rgb(55, 51, 68);
             // display: none;
         }
-
     }
 
     &__poster {
         object-fit: contain;
         width: 100%;
-        max-height: 150px;
-        margin-right: 5px;
+        max-height: 200px;
+        margin-right: 10px;
         transition: transform 450ms;
+        color: #00000080;
 
         &:hover {
             transform: scale(1.09);
@@ -29,8 +32,7 @@
         &Larger {
             max-height: 200px;
             max-width: auto;
-
-
         }
     }
+
 }

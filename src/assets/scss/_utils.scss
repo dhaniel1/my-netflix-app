@@ -39,7 +39,9 @@
 .btnRed {
     background-color: #DD0B15;
     color: #fff;
-    padding: .2rem 1rem;
+    padding: .5rem 1rem;
+    line-height: normal;
+    text-align: center;
 
     &:hover {
         background-color: #dd0b1685;

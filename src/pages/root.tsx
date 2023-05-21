@@ -30,6 +30,7 @@ const Root = () => {
               membership.
             </p>
             <div className="root__form">
+              {/* Insert Formik here */}
               <input
                 type="text"
                 title="email"
@@ -46,7 +47,7 @@ const Root = () => {
             <div>
               <div className="card__container ">
                 {rootCardData.map((data) => {
-                  return <Card data={data} />;
+                  return <Card key={data.id} data={data} />;
                 })}
               </div>
             </div>

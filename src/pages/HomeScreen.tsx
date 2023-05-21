@@ -1,4 +1,3 @@
-import React from "react";
 import { Navbar } from "../components";
 import { Banner } from "../components/banner";
 import Row from "../components/rows/rows";
@@ -10,21 +9,13 @@ const HomeScreen = () => {
       <div>
         <Navbar />
         <Banner />
-        <Row
-          movieTitle={"Netflix Originals"}
-          fetchUrl={requests.fetchNetflixOriginals}
-          isLargeRow
-        />
-        <Row movieTitle="Trending Now" fetchUrl={requests.fetchTrending} />
-        <Row movieTitle="Top Rated" fetchUrl={requests.fetchTopRated} />
-        <Row movieTitle="Action Movies" fetchUrl={requests.fetchActionMovies} />
-        <Row movieTitle="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />
-        <Row movieTitle="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
-        <Row
-          movieTitle="Romance Movies"
-          fetchUrl={requests.fetchRomanceMovies}
-        />
-        <Row movieTitle="Documentries" fetchUrl={requests.fetchDocumentaries} />
+        {requests.map((request) => (
+          <Row
+            key={request.title}
+            movieTitle={request.title}
+            fetchUrl={request.url}
+          />
+        ))}
       </div>
     </>
   );

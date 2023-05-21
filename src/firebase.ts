@@ -17,3 +17,37 @@ const db = getFirestore(firebaseApp);
 export const auth = getAuth(firebaseApp);
 
 export default db;
+
+/* const emailValue = emailRef.current ? emailRef.current.value : "";
+  const passwordValue = passwordRef.current ? passwordRef.current.value : "";
+
+  function register(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    e.preventDefault();
+
+    createUserWithEmailAndPassword(auth, emailValue, passwordValue)
+      .then((userCredential) => {
+        // Signed in
+        // const user = userCredential.user;
+        console.log(userCredential);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+        // ..
+      });
+  }
+
+  function signInFn(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    e.preventDefault();
+
+    ctx.authenticated = true;
+    navigate("/home");
+  }
+  let error; */
+
+/*const firebaseApp = initializeApp(firebaseConfig);
+ const db = getFirestore(firebaseApp);
+const auth = getAuth(firebaseApp); */
